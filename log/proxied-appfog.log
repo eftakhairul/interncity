@@ -1,0 +1,220 @@
+Connecting to database specified by database.yml
+  [1m[36m (794.0ms)[0m  [1mDROP TABLE `active_admin_comments`[0m
+  [1m[35m (748.2ms)[0m  CREATE TABLE `active_admin_comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `resource_id` varchar(255) NOT NULL, `resource_type` varchar(255) NOT NULL, `author_id` int(11), `author_type` varchar(255), `body` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `namespace` varchar(255)) ENGINE=InnoDB
+  [1m[36m (780.2ms)[0m  [1mCREATE INDEX `index_active_admin_comments_on_author_type_and_author_id` ON `active_admin_comments` (`author_type`, `author_id`)[0m
+  [1m[35m (987.9ms)[0m  CREATE INDEX `index_active_admin_comments_on_namespace` ON `active_admin_comments` (`namespace`)
+  [1m[36m (905.0ms)[0m  [1mCREATE INDEX `index_admin_notes_on_resource_type_and_resource_id` ON `active_admin_comments` (`resource_type`, `resource_id`)[0m
+  [1m[35m (726.6ms)[0m  DROP TABLE `admin_users`
+  [1m[36m (747.3ms)[0m  [1mCREATE TABLE `admin_users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (784.8ms)[0m  CREATE UNIQUE INDEX `index_admin_users_on_email` ON `admin_users` (`email`)
+  [1m[36m (955.5ms)[0m  [1mCREATE UNIQUE INDEX `index_admin_users_on_reset_password_token` ON `admin_users` (`reset_password_token`)[0m
+  [1m[35m (1643.2ms)[0m  DROP TABLE `companies`
+  [1m[36m (940.9ms)[0m  [1mCREATE TABLE `companies` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `website` varchar(255), `contact_person` varchar(255), `contact_number` varchar(255), `email` varchar(255), `industry_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (779.3ms)[0m  CREATE INDEX `index_companies_on_email` ON `companies` (`email`)
+  [1m[36m (819.7ms)[0m  [1mCREATE INDEX `index_companies_on_industry_id` ON `companies` (`industry_id`)[0m
+  [1m[35m (779.1ms)[0m  DROP TABLE `company_job_titles`
+  [1m[36m (800.2ms)[0m  [1mCREATE TABLE `company_job_titles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `company_id` int(11), `job_title_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (873.8ms)[0m  CREATE UNIQUE INDEX `index_company_job_titles_on_company_id_and_job_title_id` ON `company_job_titles` (`company_id`, `job_title_id`)
+  [1m[36m (2560.5ms)[0m  [1mDROP TABLE `industries`[0m
+  [1m[35m (774.4ms)[0m  CREATE TABLE `industries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (775.1ms)[0m  [1mDROP TABLE `intern_job_titles`[0m
+  [1m[35m (797.4ms)[0m  CREATE TABLE `intern_job_titles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `intern_id` int(11), `job_title_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (721.5ms)[0m  [1mCREATE UNIQUE INDEX `index_intern_job_titles_on_intern_id_and_job_title_id` ON `intern_job_titles` (`intern_id`, `job_title_id`)[0m
+  [1m[35m (958.9ms)[0m  DROP TABLE `interns`
+  [1m[36m (788.2ms)[0m  [1mCREATE TABLE `interns` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `contact_number` varchar(255), `linkedin_address` varchar(255), `university_id` int(11), `major_id` int(11), `graduation_year` int(11) DEFAULT 2013, `is_active` tinyint(1) DEFAULT 1, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (768.7ms)[0m  CREATE INDEX `index_interns_on_email` ON `interns` (`email`)
+  [1m[36m (904.9ms)[0m  [1mCREATE INDEX `index_interns_on_major_id` ON `interns` (`major_id`)[0m
+  [1m[35m (824.4ms)[0m  CREATE INDEX `index_interns_on_university_id` ON `interns` (`university_id`)
+  [1m[36m (1270.1ms)[0m  [1mDROP TABLE `job_titles`[0m
+  [1m[35m (774.1ms)[0m  CREATE TABLE `job_titles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (759.9ms)[0m  [1mDROP TABLE `majors`[0m
+  [1m[35m (766.4ms)[0m  CREATE TABLE `majors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (726.3ms)[0m  [1mDROP TABLE `universities`[0m
+  [1m[35m (797.8ms)[0m  CREATE TABLE `universities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (989.7ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (808.9ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (712.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1094.2ms)[0m  INSERT INTO `universities` (`created_at`, `name`, `updated_at`) VALUES ('2013-05-14 21:22:18', 'BRAC University', '2013-05-14 21:22:18')
+  [1m[36m (814.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (878.1ms)[0m  BEGIN
+  [1m[36mSQL (724.6ms)[0m  [1mINSERT INTO `universities` (`created_at`, `name`, `updated_at`) VALUES ('2013-05-14 21:22:20', 'North South University', '2013-05-14 21:22:20')[0m
+  [1m[35m (709.7ms)[0m  COMMIT
+  [1m[36m (809.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (993.1ms)[0m  INSERT INTO `majors` (`created_at`, `name`, `updated_at`) VALUES ('2013-05-14 21:22:24', 'Software Engineer', '2013-05-14 21:22:24')
+  [1m[36m (766.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (782.8ms)[0m  BEGIN
+  [1m[36mSQL (978.6ms)[0m  [1mINSERT INTO `majors` (`created_at`, `name`, `updated_at`) VALUES ('2013-05-14 21:22:26', 'Marketing', '2013-05-14 21:22:26')[0m
+  [1m[35m (886.6ms)[0m  COMMIT
+  [1m[36m (828.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (748.4ms)[0m  INSERT INTO `job_titles` (`created_at`, `name`, `updated_at`) VALUES ('2013-05-14 21:22:30', 'Software Engineer', '2013-05-14 21:22:30')
+  [1m[36m (783.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (714.0ms)[0m  BEGIN
+  [1m[36mSQL (815.8ms)[0m  [1mINSERT INTO `job_titles` (`created_at`, `name`, `updated_at`) VALUES ('2013-05-14 21:22:32', 'QA', '2013-05-14 21:22:32')[0m
+  [1m[35m (1765.9ms)[0m  COMMIT
+  [1m[36m (1789.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (757.1ms)[0m  INSERT INTO `industries` (`created_at`, `name`, `updated_at`) VALUES ('2013-05-14 21:22:37', 'IT', '2013-05-14 21:22:37')
+  [1m[36m (729.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (5293.4ms)[0m  BEGIN
+  [1m[36mSQL (752.0ms)[0m  [1mINSERT INTO `industries` (`created_at`, `name`, `updated_at`) VALUES ('2013-05-14 21:22:44', 'TELCO', '2013-05-14 21:22:44')[0m
+  [1m[35m (732.2ms)[0m  COMMIT
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (545.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateInterns (20130510201816)
+  [1m[35m (655.0ms)[0m  CREATE TABLE `interns` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `contact_number` varchar(255), `linkedin_address` varchar(255), `university_id` int(11), `major_id` int(11), `graduation_year` int(11) DEFAULT 2013, `is_active` tinyint(1) DEFAULT 1, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (984.6ms)[0m  [1mCREATE INDEX `index_interns_on_email` ON `interns` (`email`)[0m
+  [1m[35m (780.2ms)[0m  CREATE INDEX `index_interns_on_university_id` ON `interns` (`university_id`)
+  [1m[36m (603.1ms)[0m  [1mCREATE INDEX `index_interns_on_major_id` ON `interns` (`major_id`)[0m
+  [1m[35m (619.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130510201816')
+Migrating to CreateMajors (20130510202110)
+  [1m[36m (562.8ms)[0m  [1mCREATE TABLE `majors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (535.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130510202110')
+Migrating to CreateUniversities (20130510202138)
+  [1m[36m (540.6ms)[0m  [1mCREATE TABLE `universities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (723.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130510202138')
+Migrating to CreateJobTitles (20130510203004)
+  [1m[36m (523.4ms)[0m  [1mCREATE TABLE `job_titles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (605.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130510203004')
+Migrating to CreateCompanies (20130510203305)
+  [1m[36m (595.4ms)[0m  [1mCREATE TABLE `companies` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `website` varchar(255), `contact_person` varchar(255), `contact_number` varchar(255), `email` varchar(255), `industry_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (579.0ms)[0m  CREATE INDEX `index_companies_on_email` ON `companies` (`email`)
+  [1m[36m (1228.0ms)[0m  [1mCREATE INDEX `index_companies_on_industry_id` ON `companies` (`industry_id`)[0m
+  [1m[35m (1356.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130510203305')
+Migrating to CreateIndustries (20130510204036)
+  [1m[36m (1090.4ms)[0m  [1mCREATE TABLE `industries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (595.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130510204036')
+Migrating to DeviseCreateAdminUsers (20130511204000)
+  [1m[36m (630.5ms)[0m  [1mCREATE TABLE `admin_users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (714.7ms)[0m  CREATE UNIQUE INDEX `index_admin_users_on_email` ON `admin_users` (`email`)
+  [1m[36m (578.2ms)[0m  [1mCREATE UNIQUE INDEX `index_admin_users_on_reset_password_token` ON `admin_users` (`reset_password_token`)[0m
+  [1m[35m (533.9ms)[0m  BEGIN
+  [1m[36mAdminUser Exists (521.6ms)[0m  [1mSELECT 1 AS one FROM `admin_users` WHERE `admin_users`.`email` = BINARY 'admin@example.com' LIMIT 1[0m
+  [1m[35mSQL (541.1ms)[0m  INSERT INTO `admin_users` (`created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `last_sign_in_at`, `last_sign_in_ip`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `updated_at`) VALUES ('2013-05-15 20:12:39', NULL, NULL, 'admin@example.com', '$2a$10$cETDhPNobQrBaIFO5dnB/eWNE0SGbYjD.xUBMESWYglSUUXP1ScFS', NULL, NULL, NULL, NULL, NULL, 0, '2013-05-15 20:12:39')
+  [1m[36m (560.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (592.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130511204000')
+Migrating to CreateAdminNotes (20130511204004)
+  [1m[36m (742.4ms)[0m  [1mCREATE TABLE `admin_notes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `resource_id` varchar(255) NOT NULL, `resource_type` varchar(255) NOT NULL, `admin_user_id` int(11), `admin_user_type` varchar(255), `body` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (596.8ms)[0m  CREATE INDEX `index_admin_notes_on_resource_type_and_resource_id` ON `admin_notes` (`resource_type`, `resource_id`)
+  [1m[36m (809.4ms)[0m  [1mCREATE INDEX `index_admin_notes_on_admin_user_type_and_admin_user_id` ON `admin_notes` (`admin_user_type`, `admin_user_id`)[0m
+  [1m[35m (561.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130511204004')
+Migrating to MoveAdminNotesToComments (20130511204005)
+  [1m[36m (593.6ms)[0m  [1mDROP INDEX `index_admin_notes_on_admin_user_type_and_admin_user_id` ON `admin_notes`[0m
+  [1m[35m (592.7ms)[0m  RENAME TABLE `admin_notes` TO `active_admin_comments`
+  [1m[36m (523.1ms)[0m  [1mSHOW COLUMNS FROM `active_admin_comments` LIKE 'admin_user_type'[0m
+  [1m[35m (544.8ms)[0m  ALTER TABLE `active_admin_comments` CHANGE `admin_user_type` `author_type` varchar(255) DEFAULT NULL
+  [1m[36m (1279.3ms)[0m  [1mSHOW COLUMNS FROM `active_admin_comments` LIKE 'admin_user_id'[0m
+  [1m[35m (1339.6ms)[0m  ALTER TABLE `active_admin_comments` CHANGE `admin_user_id` `author_id` int(11) DEFAULT NULL
+  [1m[36m (693.0ms)[0m  [1mALTER TABLE `active_admin_comments` ADD `namespace` varchar(255)[0m
+  [1m[35m (727.7ms)[0m  CREATE INDEX `index_active_admin_comments_on_namespace` ON `active_admin_comments` (`namespace`)
+  [1m[36m (589.2ms)[0m  [1mCREATE INDEX `index_active_admin_comments_on_author_type_and_author_id` ON `active_admin_comments` (`author_type`, `author_id`)[0m
+  [1m[35m (678.5ms)[0m  UPDATE active_admin_comments SET namespace='admin'
+  [1m[36m (576.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130511204005')[0m
+Migrating to CreateInternJobTitles (20130513200413)
+  [1m[35m (535.7ms)[0m  CREATE TABLE `interns_job_titles` (`intern_id` int(11), `job_title_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (586.9ms)[0m  [1mCREATE UNIQUE INDEX `index_interns_job_titles_on_intern_id_and_job_title_id` ON `interns_job_titles` (`intern_id`, `job_title_id`)[0m
+  [1m[35m (666.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130513200413')
+Migrating to CreateCompanyJobTitles (20130513201436)
+  [1m[36m (934.1ms)[0m  [1mCREATE TABLE `companies_job_titles` (`company_id` int(11), `job_title_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (570.3ms)[0m  CREATE UNIQUE INDEX `index_companies_job_titles_on_company_id_and_job_title_id` ON `companies_job_titles` (`company_id`, `job_title_id`)
+  [1m[36m (782.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130513201436')[0m
+  [1m[35m (1366.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+SignalException: SIGHUP: SHOW TABLES LIKE 'industries'
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (632.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateInterns (20130510201816)
+Migrating to CreateMajors (20130510202110)
+Migrating to CreateUniversities (20130510202138)
+Migrating to CreateJobTitles (20130510203004)
+Migrating to CreateCompanies (20130510203305)
+Migrating to CreateIndustries (20130510204036)
+Migrating to DeviseCreateAdminUsers (20130511204000)
+Migrating to CreateAdminNotes (20130511204004)
+Migrating to MoveAdminNotesToComments (20130511204005)
+Migrating to CreateInternJobTitles (20130513200413)
+Migrating to CreateCompanyJobTitles (20130513201436)
+Migrating to CreateMentors (20130517182159)
+  [1m[35m (566.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+  [1m[36m (1162.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateInterns (20130510201816)
+Migrating to CreateMajors (20130510202110)
+Migrating to CreateUniversities (20130510202138)
+Migrating to CreateJobTitles (20130510203004)
+Migrating to CreateCompanies (20130510203305)
+Migrating to CreateIndustries (20130510204036)
+Migrating to DeviseCreateAdminUsers (20130511204000)
+Migrating to CreateAdminNotes (20130511204004)
+Migrating to MoveAdminNotesToComments (20130511204005)
+Migrating to CreateInternJobTitles (20130513200413)
+Migrating to CreateCompanyJobTitles (20130513201436)
+Migrating to CreateMentors (20130517182159)
+  [1m[35m (599.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1243.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateInterns (20130510201816)
+Migrating to CreateMajors (20130510202110)
+Migrating to CreateUniversities (20130510202138)
+Migrating to CreateJobTitles (20130510203004)
+Migrating to CreateCompanies (20130510203305)
+Migrating to CreateIndustries (20130510204036)
+Migrating to DeviseCreateAdminUsers (20130511204000)
+Migrating to CreateAdminNotes (20130511204004)
+Migrating to MoveAdminNotesToComments (20130511204005)
+Migrating to CreateInternJobTitles (20130513200413)
+Migrating to CreateCompanyJobTitles (20130513201436)
+Migrating to CreateMentors (20130517182159)
+  [1m[35m (513.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+  [1m[36m (873.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (635.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+  [1m[36m (529.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (568.7ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+  [1m[36m (701.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateInterns (20130510201816)
+Migrating to CreateMajors (20130510202110)
+Migrating to CreateUniversities (20130510202138)
+Migrating to CreateJobTitles (20130510203004)
+Migrating to CreateCompanies (20130510203305)
+Migrating to CreateIndustries (20130510204036)
+Migrating to DeviseCreateAdminUsers (20130511204000)
+Migrating to CreateAdminNotes (20130511204004)
+Migrating to MoveAdminNotesToComments (20130511204005)
+Migrating to CreateInternJobTitles (20130513200413)
+Migrating to CreateCompanyJobTitles (20130513201436)
+Migrating to CreateMentors (20130517182159)
+  [1m[35m (693.8ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+  [1m[36m (626.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateInterns (20130510201816)
+Migrating to CreateMajors (20130510202110)
+Migrating to CreateUniversities (20130510202138)
+Migrating to CreateJobTitles (20130510203004)
+Migrating to CreateCompanies (20130510203305)
+Migrating to CreateIndustries (20130510204036)
+Migrating to DeviseCreateAdminUsers (20130511204000)
+Migrating to CreateAdminNotes (20130511204004)
+Migrating to MoveAdminNotesToComments (20130511204005)
+Migrating to CreateInternJobTitles (20130513200413)
+Migrating to CreateCompanyJobTitles (20130513201436)
+Migrating to CreateMentors (20130517182159)
+  [1m[35m (551.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 

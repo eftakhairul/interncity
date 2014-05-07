@@ -1,0 +1,58 @@
+<div class="side-left">
+  <%= image_tag "organization.png" %>
+</div>
+
+<div class="side-right">
+  <div id="company-step-1" class="show-step">
+    <p style="margin-bottom: 50px;">
+      Why waste time to find the right person from the mass, when the Mr or Ms right is waiting around our
+      corner? Spend too little and start hiring from our network.
+    </p>
+    <button class="goto-company-step-2 btn btn-success">Join</button>
+    <br><br>
+    <small>It takes less than 5 mins to join our network</small>
+  </div>
+  <div id="company-step-2" class="hide-step">
+    <%= form_for @company do |f| %>
+        <% if @company.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+              <ul>
+                <% @company.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <%= f.text_field :name, :placeholder => "Company Name", :class => 'input-xlarge' %>
+        <%= collection_select(:company, :industry_id, @industries, :id, :name, options ={:prompt => "Industry Type"}, :class => "input-xlarge") %>
+        <%= f.text_field :contact_person, :placeholder => "Contact Person", :class => 'input-xlarge' %>
+        <%= f.email_field :email, :placeholder => "Email", :class => 'input-xlarge' %>
+        <%= f.text_field :contact_number, :placeholder => "Phone", :class => 'input-xlarge' %>
+        <%= f.text_field :website, :placeholder => "Website", :class => 'input-xlarge' %>
+
+
+        <!--<button id="goto-company-step-3" class="btn btn-success pull-right" onclick="return false">Next</button>-->
+        <div class="btn-group" style="float: right;">
+         <button class="goto-company-step-1 btn btn-success" onclick="return false"><i class="icon-chevron-left" style="background-image:url(http://production-interncity.ap01.aws.af.cm/assets/img/glyphicons-halflings.png);"></i></button>
+          <button class="goto-company-step-3 btn btn-success" onclick="return false"><i class="icon-chevron-right" style="background-image:url(http://production-interncity.ap01.aws.af.cm/assets/img/glyphicons-halflings.png);"></i></button>
+        </div>
+        <p style="color: #ffffff">*All fields are mandatory</p>
+        </div>
+        <div id="ajax_message_company" style="padding-top:100px;color: #ffffff"></div>
+        <div id="company-step-3" class="hide-step">
+          <p>
+            We want to Hire:
+          </p>
+          <%= collection_select(:company, :job_titles, @jobs, :id, :name, options ={:prompt => ""}, :class => "input-xlarge chzn-select", :multiple => true) %>
+          <!--<div id="company-submit" class="btn btn-success pull-right">submit</div>-->
+          <div class="btn-group" style="float: right;">
+            <button class="goto-company-step-2 btn btn-success" onclick="return false"><i class="icon-chevron-left" style="background-image:url(http://production-interncity.ap01.aws.af.cm/assets/img/glyphicons-halflings.png);"></i></button>
+            <button id="company-submit" class="goto-company-submit btn btn-success" onclick="return false">Submit</button>
+            <%= image_tag "spinner.gif", :id => "company-spinner", :class => "spinner" %>
+          </div>
+        </div>
+    </div>
+    <% end %>

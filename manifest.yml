@@ -1,0 +1,17 @@
+---
+applications:
+  .:
+    name: staging-interncity
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: Rails Application
+        exec: 
+    infra: ap-aws
+    url: ${name}.${target-base}
+    mem: 256M
+    instances: 1
+    services:
+      email-privacy-mysql-96988:
+        type: mysql

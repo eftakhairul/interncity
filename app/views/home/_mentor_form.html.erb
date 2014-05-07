@@ -1,0 +1,33 @@
+<div style="display: table-cell;vertical-align: middle;padding: 0px 70px;">
+  <p>
+    Mentorship is one of the oldest and effective form of education or learning in the world. From the
+    uneducated mechanic of an automobile garage to a successful entrepreneur at any field, a Mentor is
+    always there behind all their stories. If you want a Mentor in life, join the InternCITY network for
+    positive results.
+  </p>
+
+ <span class="pull-right">
+<%= form_for(@mentor) do |f| %>
+    <% if @mentor.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@mentor.errors.count, "error") %> prohibited this mentor from being saved:</h2>
+
+          <ul>
+            <% @mentor.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <span class="pull-right" style="margin-top:10px;">
+        <%= image_tag "spinner.gif", :id => "mentor-spinner", :class => "spinner pull-right" %>
+        <button class="btn btn-success pull-right" id="mentor-submit" onclick="return false">Submit</button>
+
+        <input id="mentor_name" name= 'mentor[name]' type="text" style="background-color: transparent;border: none;box-shadow: none;color: #ffffff;" placeholder="Your email address here" class="invisible-input">
+    </span>
+<% end %>
+
+<div id="ajax_message_mentor" style="padding-top:50px;color: #ffffff"></div>
+
+  </span>
+</div>

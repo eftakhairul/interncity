@@ -1,0 +1,62 @@
+<div class="side-left">
+  <%= image_tag "intern.png" %>
+
+</div>
+
+<div class="side-right">
+  <div id="interns-step-1" class="show-step">
+    <p>
+      If you think you are hardworking, have good understanding of your skills, passionate about learning
+      and have the right attitude, apply for an internship now.
+    </p>
+    <button class="goto-interns-step-2 btn btn-success">Apply</button>
+    <br><br>
+    <small>It takes less than 5 mins to apply</small>
+  </div>
+  <div id="interns-step-2" class="hide-step" style="padding-top: 10px;">
+    <%= form_for @intern do |f| %>
+        <% if @intern.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@intern.errors.count, "error") %> prohibited this intern from being saved:</h2>
+
+              <ul>
+                <% @intern.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+    <%= f.text_field :name , :placeholder => "Name", :class => 'input-xlarge'%>
+    <%= collection_select(:intern, :university_id, @university, :id, :name, options ={:prompt => "Select University"}, :class => "input-xlarge" , :id => "select-university") %>
+    <%= collection_select(:intern, :major_id, @major, :id, :name, options ={:prompt => "Select Major"}, :class => "input-xlarge", :id => "select-major") %>
+    <%= f.select :graduation_year, (2012..2020).to_a, :include_blank => "Graduation Year",:selected => "Graduation Year", :class => "input-xlarge", :id => "select-grad-year"%>
+    <%= f.email_field :email, :placeholder => "Email", :class => 'input-xlarge' %>
+    <%= f.text_field :contact_number, :placeholder => "Phone", :class => 'input-xlarge' %>
+    <%= f.text_field :linkedin_address, :placeholder => "LinkedIn Public Profile", :class => 'input-xlarge' %>
+
+
+    <!--<button id="goto-interns-step-3" class="btn btn-success pull-right" onclick="return false">Next</button>-->
+        <div class="btn-group" style="float: right;">
+             <button class="goto-interns-step-1 btn btn-success" onclick="return false"><i class="icon-chevron-left" style="background-image:url(http://production-interncity.ap01.aws.af.cm/assets/glyphicons-halflings.png);"></i></button>
+             <button class="goto-interns-step-3 btn btn-success" onclick="return false"><i class="icon-chevron-right" style="background-image:url(http://production-interncity.ap01.aws.af.cm/assets/glyphicons-halflings.png);"></i></button>
+        </div>
+        <p style="color: #ffffff">*All fields are mandatory</p>
+
+  </div>
+  <div id="ajax_message_intern" style="padding-top:100px;color: #ffffff"></div>
+  <div id="interns-step-3" class="hide-step">
+    <p>
+      I want to work as:
+    </p>
+    <%= collection_select(:intern, :job_titles, @jobs, :id, :name, options ={:prompt => ""}, :class => "input-xlarge chzn-select", :multiple => true) %>
+    <!--<div id="intern-submit" class="btn btn-success pull-right">submit</div>-->
+    <div class="btn-group" style="float: right;">
+     <button class="goto-interns-step-2 btn btn-success" onclick="return false"><i class="icon-chevron-left" style="background-image:url(http://production-interncity.ap01.aws.af.cm/assets/img/glyphicons-halflings.png);"></i></button>
+      <button id="intern-submit" class="goto-interns-submit btn btn-success" onclick="return false">Submit</button>
+      <%= image_tag "spinner.gif", :id => "intern-spinner", :class => "spinner" %>
+    </div>
+  </div>
+</div>
+<% end %>
+

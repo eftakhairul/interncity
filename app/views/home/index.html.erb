@@ -1,0 +1,104 @@
+<div class="container">
+
+  <section class="row title-block">
+    <h4 class="pull-left" style="margin-left: 10px;">Compete . Network . Impact</h4>
+  </section>
+
+  <section id="rightPeopleCarousel" class="row media-block">
+    <%= render :partial => 'home/home_top_slider' %>
+  </section>
+
+  <section class="row content-block ">
+        <span style="position: absolute;background: #d13f31;padding: 5px 5px 2px 5px;color: white;margin-top: 10px;">
+            HOT LANDINGS:
+        </span>
+        <div class="text-center" style="margin-top: 40px;">
+          <%= image_tag "hot_landings/hot-landings-1.png", :class => "logo-others-small" %>
+          <%= image_tag "hot_landings/hot-landings-2.png", :class => "logo-others" %>
+          <%= image_tag "hot_landings/hot-landings-3.png", :class => "logo-others" %>
+          <%= image_tag "hot_landings/hot-landings-4.png", :class => "logo-others" %>
+          <%= image_tag "hot_landings/hot-landings-5.png", :class => "logo-others" %>
+          <%= image_tag "hot_landings/hot-landings-6.png", :class => "logo-others" %>
+        </div>
+  </section>
+
+  <section class="row title-block border-top">
+    <a name="interns" class="hashed-link"></a>
+    <h4>Interns</h4>
+  </section>
+
+  <section class="row media-block">
+
+    <%= render :partial => 'home/intern_form' %>
+  </section>
+
+  <!-- <section class="row content-block "></section> -->
+
+  <section class="row title-block border-top" style="margin-top:30px;">
+    <a name="organizations" class="hashed-link"></a>
+    <h4>Organizations</h4>
+  </section>
+
+  <section class="row media-block">
+    <%= render :partial => 'home/organization_form' %>
+  </section>
+
+  <section class="row content-block">
+    <h4 class="text-center">Companies who hire <span class="font-red">the right person</span>, not for any position
+    </h4>
+    <div class="text-center">
+          <%= image_tag "right_person/right-person-1.png", :class => "logo-others-small" %>
+          <%= image_tag "right_person/right-person-2.png", :class => "logo-others" %>
+          <%= image_tag "right_person/right-person-3.png", :class => "logo-others" %>
+          <%= image_tag "right_person/right-person-4.png", :class => "logo-others" %>
+          <%= image_tag "right_person/right-person-5.png", :class => "logo-others" %>
+          <%= image_tag "right_person/right-person-6.png", :class => "logo-others" %>
+        </div>
+  </section>
+
+  <section class="row title-block border-bottom">
+    <h4>Featured This Month</h4>
+  </section>
+
+  <section id="featJobCarousel" class="row">
+    <%= render :partial => 'home/featured_job' %>
+  </section>
+
+  <section class="row title-block border-bottom">
+    <a name="mentors" class="hashed-link"></a>
+    <h4>Mentors</h4>
+  </section>
+  <section class="row media-block text-block" style="height: 250px;">
+    <%= render :partial => 'home/mentor_form' %>
+  </section>
+
+  <section class="row content-block">
+    <h4 class="text-center">Some <span class="font-red">great features</span> that make us proud</h4>
+    <div class="text-center">
+          <%= image_tag "make_proud/make-proud-1.png", :class => "logo-others" %>
+          <%= image_tag "make_proud/make-proud-2.png", :class => "logo-others" %>
+          <%= image_tag "make_proud/make-proud-3.png", :class => "logo-others" %>
+        </div>
+  </section>
+
+  <section class="row title-block border-bottom">
+    <a name="about" class="hashed-link"></a>
+    <h4>About us</h4>
+  </section>
+
+  <section class="row media-block text-block" style="height: 250px;">
+    <%= render :partial => 'home/about_us' %>
+  </section>
+
+  <section class="row title-block border-bottom">
+    <a name="contact" class="hashed-link"></a>
+    <h4>Contact us</h4>
+  </section>
+
+  <section class="row content-block">
+    <%= render :partial => 'home/contact_us' %>
+  </section>
+
+  <%= render :partial => 'shared/footer' %>
+</div>
+

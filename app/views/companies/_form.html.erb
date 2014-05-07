@@ -1,0 +1,56 @@
+<%= form_for(@company) do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+      <label>Name: </label>
+      <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+      <label>Email: </label>
+      <%= f.email_field :email %>
+  </div>
+
+
+  <div class="actions">
+      <label>Contact Number: </label>
+      <%= f.text_field :contact_number %>
+  </div>
+
+
+  <div class="actions">
+      <label>Contact Person: </label>
+      <%= f.text_field :contact_person %>
+  </div>
+
+   <div class="actions">
+      <label>Website: </label>
+      <%= f.text_field :website %>
+  </div>
+
+  <div>
+      <label>Industry</label>
+      <%= collection_select(:company, :industry_id, @industries, :id, :name, options ={:prompt => "-Select a Industry"}, :class => "industry") %>
+    </div>
+
+  <div>
+
+      <label>Job You Like to post</label>
+      <%= collection_select(:company, :job_titles, @jobs, :id, :name, options ={:prompt => "-Select Jobs -"}, :class => "major", :multiple => true) %>
+
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

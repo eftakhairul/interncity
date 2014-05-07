@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  intern_id: MyString
+  job_title_id: MyString
+
+two:
+  intern_id: MyString
+  job_title_id: MyString

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>InternCITY</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <link rel="icon" type="image/png" href="/assets/favicon.ico">
+
+      <style>
+          body {
+              zoom: 90%;
+              padding-top: 40px;
+          }
+          
+          .chzn-container .chzn-results {
+                max-height: 150px;
+            }
+      </style>
+
+      <%= stylesheet_link_tag :application %>
+
+      <%= csrf_meta_tags %>
+    </head>
+
+    <body>
+
+        <%= render :partial => 'shared/header' %>
+        <% if notice %><p id="notice"><%= notice %></p><% end %>
+        <% if alert %><p id="alert"><%= alert %></p><% end %>
+        <%= yield %>
+
+    </body>
+
+
+    <%= javascript_include_tag :application %>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-41589184-1', 'interncity.org');
+      ga('send', 'pageview');
+
+    </script>
+</html>

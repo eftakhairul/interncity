@@ -1,0 +1,69 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Compiled jquery.js  (2ms)  (pid 8485)
+Compiled jquery-ui.js  (6ms)  (pid 8485)
+Compiled jquery_ujs.js  (0ms)  (pid 8485)
+Compiled active_admin/lib/namespace.js  (771ms)  (pid 8485)
+Compiled active_admin/components/jquery.aa.checkbox-toggler.js  (245ms)  (pid 8485)
+Compiled active_admin/components/jquery.aa.dropdown-menu.js  (259ms)  (pid 8485)
+Compiled active_admin/components/jquery.aa.popover.js  (248ms)  (pid 8485)
+Compiled active_admin/components/jquery.aa.table-checkbox-toggler.js  (213ms)  (pid 8485)
+Compiled active_admin/pages/application.js  (192ms)  (pid 8485)
+Compiled active_admin/pages/batch_actions.js  (203ms)  (pid 8485)
+Compiled active_admin/application.js  (2269ms)  (pid 8485)
+Compiled active_admin/base.js  (2422ms)  (pid 8485)
+Compiled active_admin.js  (2452ms)  (pid 8485)
+Compiled twitter-bootstrap/bootstrap.min.js  (0ms)  (pid 8485)
+Compiled twitter-bootstrap/modernizr-2.6.2-respond-1.1.0.min.js  (0ms)  (pid 8485)
+Compiled chosen/chosen.jquery.min.js  (0ms)  (pid 8485)
+Compiled validation/jquery.validate.min.js  (0ms)  (pid 8485)
+Compiled main.js  (0ms)  (pid 8485)
+Compiled application.js  (80ms)  (pid 8485)
+Compiled active_admin.css  (2436ms)  (pid 8485)
+Compiled bootstrap.min.css  (0ms)  (pid 8485)
+Compiled bootstrap-responsive.min.css  (0ms)  (pid 8485)
+Compiled main.css  (0ms)  (pid 8485)
+Compiled chosen/chosen.css  (0ms)  (pid 8485)
+Compiled application.css  (21ms)  (pid 8485)
+Compiled active_admin/print.css  (85ms)  (pid 8485)
+Connecting to database specified by database.yml
+Compiled jquery.js  (2ms)  (pid 8485)
+Compiled jquery-ui.js  (6ms)  (pid 8485)
+Compiled jquery_ujs.js  (0ms)  (pid 8485)
+Compiled active_admin/lib/namespace.js  (190ms)  (pid 8485)
+Compiled active_admin/components/jquery.aa.checkbox-toggler.js  (288ms)  (pid 8485)
+Compiled active_admin/components/jquery.aa.dropdown-menu.js  (262ms)  (pid 8485)
+Compiled active_admin/components/jquery.aa.popover.js  (254ms)  (pid 8485)
+Compiled active_admin/components/jquery.aa.table-checkbox-toggler.js  (219ms)  (pid 8485)
+Compiled active_admin/pages/application.js  (216ms)  (pid 8485)
+Compiled active_admin/pages/batch_actions.js  (229ms)  (pid 8485)
+Compiled active_admin/application.js  (1813ms)  (pid 8485)
+Compiled active_admin/base.js  (1908ms)  (pid 8485)
+Compiled active_admin.js  (1975ms)  (pid 8485)
+Compiled twitter-bootstrap/bootstrap.min.js  (0ms)  (pid 8485)
+Compiled twitter-bootstrap/modernizr-2.6.2-respond-1.1.0.min.js  (0ms)  (pid 8485)
+Compiled chosen/chosen.jquery.min.js  (0ms)  (pid 8485)
+Compiled validation/jquery.validate.min.js  (0ms)  (pid 8485)
+Compiled main.js  (0ms)  (pid 8485)
+Compiled application.js  (37ms)  (pid 8485)
+Compiled active_admin.css  (1937ms)  (pid 8485)
+Compiled bootstrap.min.css  (0ms)  (pid 8485)
+Compiled bootstrap-responsive.min.css  (0ms)  (pid 8485)
+Compiled main.css  (0ms)  (pid 8485)
+Compiled chosen/chosen.css  (0ms)  (pid 8485)
+Compiled application.css  (19ms)  (pid 8485)
+Compiled active_admin/print.css  (78ms)  (pid 8485)
